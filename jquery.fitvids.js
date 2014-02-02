@@ -69,7 +69,7 @@
           $this.attr('id', videoID);
         }
         $this.wrap('<div class="fluid-width-video-wrapper"></div>').parent('.fluid-width-video-wrapper').css('padding-top', (aspectRatio * 100)+"%").css('max-width', $orgwidth+'px').css('max-height', $orgheight+'px');
-        $this.removeAttr('height').removeAttr('width');
+        $this.removeAttr('height').removeAttr('width').css('max-width', $orgwidth+'px').css('max-height', $orgheight+'px');
       });
     });
   };
