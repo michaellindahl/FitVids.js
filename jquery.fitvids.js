@@ -57,8 +57,6 @@
 
       $allVideos.each(function(){
         var $this = $(this);
-	var $orgwidth = $this.attr('width');
-	var $orgheight = $this.attr('height');
         if ($this.width() < 320) return false;
         if (this.tagName.toLowerCase() === 'embed' && $this.parent('object').length || $this.parent('.fluid-width-video-wrapper').length) { return; }
         var height = ( this.tagName.toLowerCase() === 'object' || ($this.attr('height') && !isNaN(parseInt($this.attr('height'), 10))) ) ? parseInt($this.attr('height'), 10) : $this.height(),
@@ -68,8 +66,8 @@
           var videoID = 'fitvid' + Math.floor(Math.random()*999999);
           $this.attr('id', videoID);
         }
-        $this.wrap('<div class="fluid-width-video-wrapper"></div>').parent('.fluid-width-video-wrapper').css('padding-top', (aspectRatio * 100)+"%").css('max-width', $orgwidth+'px').css('max-height', $orgheight+'px');
-        $this.removeAttr('height').removeAttr('width').css('max-width', $orgwidth+'px').css('max-height', $orgheight+'px');
+        $this.wrap('<div class="fluid-width-video-wrapper"></div>').parent('.fluid-width-video-wrapper').css('padding-top', (aspectRatio * 100)+"%").css('max-width', width+'px').css('max-height', height+'px');
+        $this.removeAttr('height').removeAttr('width').css('max-width', width+'px').css('max-height', height+'px');
       });
     });
   };
